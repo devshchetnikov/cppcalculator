@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="cppcalculator/cppcalculator.vcxproj" />
+  <Project Path="cppcalculator/cppcalculator.vcxproj" Id="11485291-33b3-47c6-a3b3-97325e88d10a" />
 </Solution>
