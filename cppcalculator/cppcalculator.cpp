@@ -65,6 +65,8 @@ int main() {
 		std::cout << "Хотите продолжить? (y/n): ";
 		std::cin >> choice;
 
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //Отчистка буфера от лишних символах
+
 
 	} while (choice == 'Y' || choice == 'y');
 
