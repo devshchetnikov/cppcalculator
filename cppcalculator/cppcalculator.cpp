@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <string> // Добавил для работы со строками
+#include <limits>
+
 int main() {
 	setlocale(LC_ALL, "RU");
 
@@ -26,7 +28,17 @@ int main() {
 		}
 
 		std::cout << "Выберите операцию (+, -, *, /): ";
-		std::cin >> op;
+		while (true) {
+			std::cin >> op;
+			if (op == '+' || op == '-' || op == '*' || op == '/') {
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				break;
+			}
+			std::cout << "Неверный знак! Выберите (+, -, *, /): ";
+		    
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 
 		std::cout << "Введите второе число: ";
 		while (true) {
