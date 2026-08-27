@@ -2,6 +2,23 @@
 #include <string> // Добавил для работы со строками
 #include <limits>
 
+// Новая функция: убирает дубликат кода чисел
+
+double getNumber(const std::string& prompt) {
+	std::string input;
+	while (true) {
+		std::cout << prompt;
+		std::cin >> input;
+		try {
+			return std::stod(input);
+		}
+		catch (...) {
+			std::cout << "Ошибка! Вы ввели буквы. ";
+		}
+	}
+}
+
+
 int main() {
 	setlocale(LC_ALL, "RU");
 
@@ -15,17 +32,7 @@ int main() {
 	do {
 		std::cout << "=== Ваш персональный калькулятор на с++ ===" << std::endl;
 
-		std::cout << "Введите первое число: ";
-		while (true) {
-			std::cin >> input;
-			try {
-				num1 = std::stod(input);
-				break;
-			}
-			catch (...) {
-				std::cout << "Ошибка вы ввели буквы. Введите число: ";
-			}
-		}
+		num1 = getNumber("Введите первое число: ");
 
 		std::cout << "Выберите операцию (+, -, *, /): ";
 		while (true) {
@@ -40,17 +47,7 @@ int main() {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		std::cout << "Введите второе число: ";
-		while (true) {
-			std::cin >> input;
-			try {
-				num2 = std::stod(input);
-				break;
-			}
-			catch (...) {
-				std::cout << "Ошибка вы ввели буквы. Введите число: ";
-			}
-		}
+		num2 = getNumber("Введите второе число: ");
 
 		switch (op) {
 		case '+':
@@ -78,6 +75,7 @@ int main() {
 		std::cin >> choice;
 
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //Отчистка буфера от лишних символах
+
 
 
 	} while (choice == 'Y' || choice == 'y');
