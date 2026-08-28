@@ -34,10 +34,10 @@ int main() {
 
 		num1 = getNumber("Введите первое число: ");
 
-		std::cout << "Выберите операцию (+, -, *, /): ";
+		std::cout << "Выберите операцию (+, -, *, /, ^): ";
 		while (true) {
 			std::cin >> op;
-			if (op == '+' || op == '-' || op == '*' || op == '/') {
+			if (op == '+' || op == '-' || op == '*' || op == '/' || op == '^') {
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				break;
 			}
@@ -66,6 +66,9 @@ int main() {
 			else {
 				std::cout << num1 / num2 << std::endl;
 			}
+			break;
+		case '^':
+			std::cout << std::pow(num1, num2) << std::endl;
 			break;
 		default:
 			std::cout << "Ошибка неверная операция!" << std::endl;
