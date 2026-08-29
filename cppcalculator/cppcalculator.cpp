@@ -1,16 +1,22 @@
 ﻿#include <iostream>
 #include <string> // Добавил для работы со строками
 #include <limits>
+#include <cmath>
 
 // Новая функция: убирает дубликат кода чисел
 
 double getNumber(const std::string& prompt) {
 	std::string input;
+	size_t idx;
 	while (true) {
 		std::cout << prompt;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		try {
-			return std::stod(input);
+			double value = std::stod(input, &idx);
+			if (idx == input.length()) {
+				return value;
+			}
+			throw std::invalid_argument("Лишние символы в строке");
 		}
 		catch (...) {
 			std::cout << "Ошибка! Вы ввели буквы. ";
