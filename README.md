@@ -1,4 +1,4 @@
-# cppalculator 💻
+# cppcalculator 💻
 
 A robust command-line calculator built with pure C++. This project marks the successful completion of the terminal-based version, featuring stabilized backend math and strict input validation.
 
